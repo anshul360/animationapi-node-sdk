@@ -13,21 +13,13 @@
   "license": "MIT",
   "author": "Anshul Kumar",
   "type": "commonjs",
-  "main": "dist/index.js",
+  "main": "dist/sdk.cjs.js",
+  "types": "dist/index.d.ts",
   "directories": {
     "doc": "docs"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1",
-    "build": "rollup -c",
-    "start": "node dist.index.js"
-  },
-  "exports": {
-    ".": {
-      "require": "./dist/sdk.cjs.js",
-      "import": "./dist/sdk.esm.js",
-      "types": "./dist/index.d.ts"
-    }
+    "build": "rollup -c"
   },
   "files": [
     "dist"
