@@ -4,7 +4,7 @@ A Node.js wrapper for the AnimationAPI API - an animation, video and image gener
 
 ## Documentation
 
-Find the full API documentation [here](https://developers.AnimationAPI.com/)
+Find the full API documentation [here](https://docs.AnimationAPI.com/api-docs)
 
 ## Requirements
 
@@ -22,4 +22,40 @@ pnpm add animationapi
 yarn add animationapi
 # or
 bun animationapi
+```
+
+## Usage
+
+### Create videos
+```ts
+import {
+  Configuration,
+  VideosApi,
+} from "animationapi-node-sdk";
+
+try {
+  const aa = new VideosApi(
+    new Configuration({
+      accessToken: process.env.ANIMATIONAPI_API_KEY ?? "",
+      baseOptions: {
+        headers: {
+          "Content-Type": "application/json"
+        }
+      }
+    })
+  );
+
+  //create the body
+  const body = {
+    template_id: "ffffa434-0000-0000-b290-0b30ad82d5d3",
+    format: "mp4",
+    fps: 24
+  };
+  
+  const result = await aa.createVideos(body);
+
+  //do something with the result
+} catch (e) {
+  return Response.json({ error: e }, { status: 500 });
+}
 ```
