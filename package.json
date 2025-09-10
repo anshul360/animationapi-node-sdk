@@ -1,5 +1,5 @@
 {
-  "name": "animationapi-node-sdk",
+  "name": "animationapi",
   "version": "0.0.16",
   "description": "Nodejs SDK for AnimationAPI Rest API",
   "keywords": [
