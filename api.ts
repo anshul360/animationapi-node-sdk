@@ -2119,7 +2119,7 @@ export class WebhooksApi extends BaseAPI {
      * @throws {RequiredError}
      * @memberof WebhooksApi
      */
-    public listWebhooks(limit?: number, offset?: number, enabled?: boolean, options?: RawAxiosRequestConfig) {
+    public listAllWebhooks(limit?: number, offset?: number, enabled?: boolean, options?: RawAxiosRequestConfig) {
         return WebhooksApiFp(this.configuration).listWebhooks(limit, offset, enabled, options).then((request) => request(this.axios, this.basePath));
     }
 

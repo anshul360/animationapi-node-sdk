@@ -31,7 +31,7 @@ bun animationapi
 import {
   Configuration,
   VideosApi,
-} from "animationapi-node-sdk";
+} from "animationapi";
 
 try {
   const aa = new VideosApi(
@@ -57,6 +57,6 @@ try {
 
   //do something with the result
 } catch (e) {
-  return Response.json({ error: e }, { status: 500 });
+  console.log(e);
 }
 ```
