@@ -43,7 +43,7 @@ try {
     })
   );
 
-  //create the body
+  //create the request body
   const body = {
     template_id: "ffffa434-0000-0000-b290-0b30ad82d5d3",
     format: "mp4",
@@ -62,6 +62,8 @@ try {
 ### Get video status
 
 ```ts
+import { Configuration, VideosApi } from "animationapi";
+
 try {
   const aa = new VideosApi(
     new Configuration({
@@ -88,6 +90,8 @@ try {
 ### List all videos
 
 ```ts
+import { Configuration, VideosApi } from "animationapi";
+
 try {
   const aa = new VideosApi(
     new Configuration({
@@ -112,6 +116,8 @@ try {
 ### List all templates
 
 ```ts
+import { Configuration, TemplatesApi } from "animationapi";
+
 try {
   const aa = new TemplatesApi(
     new Configuration({
@@ -133,9 +139,129 @@ try {
 }
 ```
 
+### Create webhook
+
+```ts
+import { Configuration, WebhooksApi } from "animationapi";
+
+try {
+  const aa = new WebhooksApi(
+    new Configuration({
+      accessToken: process.env.ANIMATIONAPI_API_KEY ?? "",
+      baseOptions: {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    })
+  );
+
+  //create the request body
+  const body = {
+    url: "https://example.com/webhook", //the webhook endpoint to recieve notifications
+    events: ["video.started", "video.failed"],
+    enabled: true,
+  };
+
+  const result = await aa.createWebhook(body);
+
+  //do something with the result
+} catch (e) {
+  console.log(e);
+}
+```
+
+### Get a webhook
+
+```ts
+import { Configuration, WebhooksApi } from "animationapi";
+
+try {
+  const aa = new WebhooksApi(
+    new Configuration({
+      accessToken: process.env.ANIMATIONAPI_API_KEY ?? "",
+      baseOptions: {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    })
+  );
+
+  // get detail of webhook using webhook id
+  const result = await aa.getWebhook("4c710de5-3111-41a9-acee-66fb0669de00");
+
+  //do something with the result
+} catch (e) {
+  console.log(e);
+}
+```
+
+### Update webhook
+
+```ts
+import { Configuration, WebhooksApi } from "animationapi";
+
+try {
+  const aa = new WebhooksApi(
+    new Configuration({
+      accessToken: process.env.ANIMATIONAPI_API_KEY ?? "",
+      baseOptions: {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    })
+  );
+
+  // create the request body
+  const body = {
+    events: ["video.started", "video.finished", "video.failed"],
+  };
+
+  // specify the webhook id & the modifications
+  const result = await aa.updateWebhook(
+    "4c710de5-3111-41a9-acee-66fb0669de00",
+    body
+  );
+
+  //do something with the result
+} catch (e) {
+  console.log(e);
+}
+```
+
+### Delete webhook
+
+```ts
+import { Configuration, WebhooksApi } from "animationapi";
+
+try {
+  const aa = new WebhooksApi(
+    new Configuration({
+      accessToken: process.env.ANIMATIONAPI_API_KEY ?? "",
+      baseOptions: {
+        headers: {
+          "Content-Type": "application/json",
+        },
+      },
+    })
+  );
+
+  // specify the webhook id
+  const result = await aa.deleteWebhook("4c710de5-3111-41a9-acee-66fb0669de00");
+  
+  //do something with the result
+} catch (e) {
+  console.log(e);
+}
+```
+
 ### List all webhooks
 
 ```ts
+import { Configuration, WebhooksApi } from "animationapi";
+
 try {
   const aa = new WebhooksApi(
     new Configuration({
@@ -150,7 +276,7 @@ try {
 
   // list all webhooks
   const result = await aa.listAllWebhooks();
-  
+
   //do something with the result
 } catch (e) {
   console.log(e);
