@@ -18,6 +18,9 @@
   "directories": {
     "doc": "docs"
   },
+  "repository": {
+    "url": "https://github.com/anshul360/animationapi-node-sdk"
+  },
   "scripts": {
     "build": "rollup -c"
   },
