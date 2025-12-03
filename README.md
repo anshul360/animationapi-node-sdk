@@ -1,6 +1,6 @@
 # AnimationAPI Node.js Library
 
-A Node.js wrapper for the AnimationAPI API - Animated Content video generation service.
+A Node.js wrapper for the AnimationAPI API - Animated video generation service.
 
 ## Documentation
 

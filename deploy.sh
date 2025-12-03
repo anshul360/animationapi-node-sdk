@@ -18,4 +18,4 @@ elif [ "$1" = 'major' ]; then
 fi
 
 git push
-npm publish
+# npm publish
